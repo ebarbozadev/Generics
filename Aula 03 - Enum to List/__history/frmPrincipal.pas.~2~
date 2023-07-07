@@ -1,0 +1,67 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.TypInfo, Vcl.StdCtrls;
+
+type
+  TDias = (Domingo, Segunda, Terca, Quarta, Quinta, Sexta, Sabado);
+  TMes =  (Janeiro, Fevereiro, Marco, Abril, Maio, Junho, Julho);
+
+  TEnumeraUtils<T> = class
+    // Quando colocamos isso antes, dizemos que podemos utilizá-la sem instanciála
+    class procedure EnumToList(Value : TStrings);
+  end;
+
+type
+  TForm1 = class(TForm)
+    ComboBox1: TComboBox;
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TEnumeraUtils<T> }
+
+class procedure TEnumeraUtils<T>.EnumToList(Value: TStrings);
+var
+  Aux: String;
+  I: Integer;
+  Posicao: Integer;
+begin
+  // Limpar a lista
+   Value.Clear;
+   I:= 0;
+   repeat
+     Aux       := GetEnumName(TypeInfo(T), I);
+     Posicao   := GetEnumValue(TypeInfo(T), Aux);
+     if Posicao <> -1 then Value.Add(Aux);
+
+   until Posicao < 0;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  TEnumeraUtils<TMes>.EnumToList(ComboBox1.Items);
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  TEnumeraUtils<TDia>.EnumToList(ComboBox1.Items);
+end;
+
+end.

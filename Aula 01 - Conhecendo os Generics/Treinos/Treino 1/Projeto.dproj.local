@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/05 17:01:57.000.451,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 09:23:30.873,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 09:24:59.575,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Aula 01 - Conhecendo os Generics\Treinos\Treino 1\frmPrincipal.pas=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 09:24:59.575,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Aula 01 - Conhecendo os Generics\Treinos\Treino 1\frmPrincipal.dfm=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/07/07 09:37:45.714,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Aula 01 - Conhecendo os Generics\Treinos\Treino 1\Projeto.dproj=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

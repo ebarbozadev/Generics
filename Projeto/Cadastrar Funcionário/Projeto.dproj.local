@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/05 17:01:57.000.451,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 13:33:39.163,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 13:47:11.335,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\frmPrincipal.pas=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 13:47:11.335,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\frmPrincipal.dfm=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/07/07 13:55:12.999,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 13:55:21.273,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\pessoa.pas=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 13:55:43.300,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 13:55:45.656,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\endereco.pas=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 13:57:02.288,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\Projeto.dproj=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2023/07/07 14:00:13.178,=C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\Unit1.pas</Transaction>
+    <Transaction>2023/07/07 14:00:16.838,C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\funcionario.pas=C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Projeto\Cadastrar Funcionário\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

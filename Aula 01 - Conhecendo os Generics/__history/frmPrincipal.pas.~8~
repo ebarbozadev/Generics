@@ -1,0 +1,66 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  // Criar uma classe genérica
+  TKeyVale<T> = class
+  private
+    FKey: String;
+    FValor: T;
+    procedure SetKey(const Value: String);
+    procedure SetValor(const Value: T);
+    public
+      property Key     : String read FKey write SetKey;
+      property Valor   : T read FValor write SetValor;
+  end;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  KV   : TKeyVale<TForm>;
+begin
+  KV   := TKeyVale<TForm>.Create;
+  try
+    KV.Key     := 'F1';
+    KV.Valor   := Self;
+
+    ShowMessage(KV.Key + ' - ' + KV.Valor.Name);
+  finally
+    KV.Free;
+  end;
+end;
+
+{ TKeyVale<T> }
+
+procedure TKeyVale<T>.SetKey(const Value: String);
+begin
+  FKey := Value;
+end;
+
+procedure TKeyVale<T>.SetValor(const Value: T);
+begin
+  FValor := Value;
+end;
+
+end.

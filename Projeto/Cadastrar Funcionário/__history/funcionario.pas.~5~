@@ -1,0 +1,39 @@
+unit funcionario;
+
+interface
+
+uses
+  pessoa;
+
+type
+  TFuncionario = class(TPessoa)
+  private
+    FSalario: String;
+    FCargo: String;
+    procedure SetCargo(const Value: String);
+    procedure SetSalario(const Value: String);
+    public
+      constructor Create;
+      destructor Destroy;
+
+      property Pessoa     : TPessoa;
+      property Endereco   : TEndereco;
+      property Cargo     : String read FCargo write SetCargo;
+      property Salario   : String read FSalario write SetSalario;
+  end;
+
+implementation
+
+{ TFuncionario }
+
+procedure TFuncionario.SetCargo(const Value: String);
+begin
+  FCargo := Value;
+end;
+
+procedure TFuncionario.SetSalario(const Value: String);
+begin
+  FSalario := Value;
+end;
+
+end.

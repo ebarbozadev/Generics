@@ -7,17 +7,31 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
-  // Para criar uma classe genérica utilizamos o <>
-  TValorChave<T> = class
-  private
+  // Criar uma classe genérica
+  TKeyVale<T> = class
+  public
+    FKey: String;
     FValor: T;
-    FChave: String;
-    procedure SetChave(const Value: String);
+    procedure SetKey(const Value: String);
     procedure SetValor(const Value: T);
-  published
-    property Chave : String read FChave write SetChave;
-    // Esse 'T' pode ser qualquer tipo, vou dizer isso em tempo real
-    property Valor : T read FValor write SetValor;
+    public
+      property Key     : String read FKey write SetKey;
+      property Valor   : T read FValor write SetValor;
+  end;
+
+type
+  TPessoa = class
+  private
+    FIdade: Integer;
+    FNome: String;
+    procedure SetIdade(const Value: Integer);
+    procedure SetNome(const Value: String);
+    public
+      constructor Create;
+      destructor Destroy; Override;
+
+      property Nome    : String read FNome write SetNome;
+      property Idade   : Integer read FIdade write SetIdade;
   end;
 
 type
@@ -37,33 +51,55 @@ implementation
 
 {$R *.dfm}
 
-{ TValorChave<T> }
-
-procedure TValorChave<T>.SetChave(const Value: String);
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  KV   : TKeyVale<TObject>;
 begin
-  FChave := Value;
+  KV   := TKeyVale<TObject>.Create;
+  try
+    KV.Key     := 'F1';
+    KV.Valor   := TPessoa.Create;
+
+    ShowMessage(KV.Key + ' - ' + KV.Valor.ClassName);
+  finally
+    KV.Free;
+  end;
 end;
 
-procedure TValorChave<T>.SetValor(const Value: T);
+{ TKeyVale<T> }
+
+procedure TKeyVale<T>.SetKey(const Value: String);
+begin
+  FKey := Value;
+end;
+
+procedure TKeyVale<T>.SetValor(const Value: T);
 begin
   FValor := Value;
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
-var
-  // Exemplo, vai receber um objeto, poderia ser um 'TForm'
-  ValorDaChave : TValorChave<TForm>;
+{ TPessoa }
+
+constructor TPessoa.Create;
 begin
-  ValorDaChave := TValorChave<TForm>.Create;
-  try
-    ValorDaChave.Chave:= 'F1';
-    ValorDaChave.Valor:= Self;
+  FNome   := 'Emanuel';
+  FIdade  := 20;
+end;
 
-    ShowMessage(ValorDaChave.Chave + ' - ' + ValorDaChave.Valor.Name);
+destructor TPessoa.Destroy;
+begin
 
-  finally
-    ValorDaChave.Free;
-  end;
+  inherited;
+end;
+
+procedure TPessoa.SetIdade(const Value: Integer);
+begin
+  FIdade := Value;
+end;
+
+procedure TPessoa.SetNome(const Value: String);
+begin
+  FNome := Value;
 end;
 
 end.

@@ -1,0 +1,128 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, funcionario,
+  System.TypInfo;
+
+type
+  TSalarios = (Cem, Duzentos, Trezentos, Quatrocentos, Quinhentos, Seiscentos, Setescentos, Oitoscentos, Novescentos, Mil);
+  TCargos   = (Presidente, Administrativo, Comercial, Programador, Suporte, Estagiario);
+
+  TEnumerarUtils<T> = class
+    class procedure ListaParaEnumerar(Valor : TStrings);
+  end;
+
+type
+  TForm1 = class(TForm)
+    edtSalario: TButton;
+    edtFuncao: TButton;
+    edtNome: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    edtRua: TEdit;
+    Label4: TLabel;
+    edtBairro: TEdit;
+    Label5: TLabel;
+    edtNumero: TEdit;
+    ComboBox1: TComboBox;
+    Label6: TLabel;
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button2Click(Sender: TObject);
+    procedure edtSalarioClick(Sender: TObject);
+    procedure edtFuncaoClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  fSalario : String;
+  fCargo   : String;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  if  (ComboBox1.Text = 'Cem') OR
+      (ComboBox1.Text = 'Duzentos') OR
+      (ComboBox1.Text = 'Trezentos') OR
+      (ComboBox1.Text = 'Quatroscentos') OR
+      (ComboBox1.Text = 'Quinhentos') OR
+      (ComboBox1.Text = 'Qeiscentos') OR
+      (ComboBox1.Text = 'Qetescentos') OR
+      (ComboBox1.Text = 'Oitoscentos') OR
+      (ComboBox1.Text = 'Novescentos') OR
+      (ComboBox1.Text = 'Mil') then fSalario := ComboBox1.Text
+  else
+    fCargo   := ComboBox1.Text;
+  ComboBox1.Clear;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  funcionario1   : TFuncionario;
+begin
+  funcionario1   := TFuncionario.Create;
+
+  funcionario1.Pessoa.Nome       := edtNome.Text;
+  funcionario1.Endereco.Rua      := edtRua.Text;
+  funcionario1.Endereco.Bairro   := edtBairro.Text;
+  funcionario1.Endereco.Numero   := edtNumero.Text;
+  funcionario1.Cargo             := fCargo;
+  funcionario1.Salario           := fSalario;
+
+  try
+    ShowMessage(funcionario1.RetornarDados);
+    edtNome.Text     := '';
+    edtRua.Text      := '';
+    edtBairro.Text   := '';
+    edtNumero.Text   := '';
+    ComboBox1.Text   := '';
+    ComboBox1.Text   := '';
+  finally
+    funcionario1.Free;
+  end;
+end;
+
+{ TEnumerarUtils<T> }
+
+class procedure TEnumerarUtils<T>.ListaParaEnumerar(Valor: TStrings);
+var
+  Aux       : String;
+  I         : Integer;
+  Posicao   : Integer;
+begin
+  I          := 0;
+  repeat
+    Aux        := GetEnumName(TypeInfo(T), I);
+    Posicao    := GetEnumValue(TypeInfo(T), Aux);
+
+    if Posicao <> -1 then Valor.Add(Aux);
+
+    Inc(I);
+  until Posicao < 0;
+end;
+
+procedure TForm1.edtFuncaoClick(Sender: TObject);
+begin
+  ComboBox1.Clear;
+  TEnumerarUtils<TCargos>.ListaParaEnumerar(ComboBox1.Items);
+end;
+
+procedure TForm1.edtSalarioClick(Sender: TObject);
+begin
+  ComboBox1.Clear;
+  TEnumerarUtils<TSalarios>.ListaParaEnumerar(ComboBox1.Items);
+end;
+
+end.

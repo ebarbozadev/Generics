@@ -1,0 +1,56 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type TMeuGenerico = array [0..9] of String;
+
+type TMeuArrayGenerico<T> = class
+  FArray : array [0..9] of T;
+end;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+  type TMeuGenericoA = TMeuArrayGenerico<String>;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  aux1   : TMeuGenerico;
+  aux2   : TMeuGenerico;
+  aux3   : array [0..9] of String;
+  aux4   : array [0..9] of String;
+begin
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  aux1   : TMeuArrayGenerico<String>;
+  aux2   : TMeuArrayGenerico<String>;
+  aux3   : TMeuGenericoA;
+  aux4   : TMeuGenericoA;
+begin
+
+end;
+
+end.

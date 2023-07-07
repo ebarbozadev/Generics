@@ -1,0 +1,15 @@
+unit pessoa;
+
+interface
+
+uses
+  endereco;
+
+type
+  TPessoa = class(TEndereco)
+
+  end;
+
+implementation
+
+end.

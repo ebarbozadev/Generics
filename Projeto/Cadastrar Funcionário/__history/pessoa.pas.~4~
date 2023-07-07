@@ -1,0 +1,40 @@
+unit pessoa;
+
+interface
+
+uses
+  endereco;
+
+type
+  TPessoa = class(TEndereco)
+  private
+    FNome: String;
+    procedure SetNome(const Value: String);
+    public
+      constructor Create;
+      destructor Destroy; override;
+
+      property Nome   : String read FNome write SetNome;
+  end;
+
+implementation
+
+{ TPessoa }
+
+constructor TPessoa.Create;
+begin
+  FNome    := Nome;
+end;
+
+destructor TPessoa.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TPessoa.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+end.
