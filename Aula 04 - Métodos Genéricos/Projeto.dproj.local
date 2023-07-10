@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/07/05 17:01:57.000.451,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/09 14:38:10.000.363,=C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/07/09 14:43:57.000.959,C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Aula 04 - Métodos Genéricos\frmPrincipal.dfm</Transaction>
+    <Transaction>2023/07/09 14:43:57.000.959,C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Aula 04 - Métodos Genéricos\frmPrincipal.pas</Transaction>
+    <Transaction>2023/07/09 14:56:26.000.903,C:\Users\geren\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\geren\OneDrive\Documentos\Delphi\Generics\Aula 04 - Métodos Genéricos\Projeto.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

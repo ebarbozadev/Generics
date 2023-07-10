@@ -1,0 +1,51 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TUtils = class
+    {
+      Criando uma função de operador ternário genérica que recebe três parâmetros
+        Condição que é do tipo booleana
+        T1 e T2 que é do tipo genérico ou seja, vamos passar o tipo durante a execução
+    }
+    class function IIF<T>(Condition : Boolean; T1, T2 : T) : T;
+  end;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+
+end;
+
+{ TUtils }
+
+class function TUtils.IIF<T>(Condition: Boolean; T1, T2: T): T;
+begin
+  if Condition then
+    Result := T1
+  else
+    Result := T2;
+end;
+
+end.
