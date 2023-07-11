@@ -1,0 +1,46 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TNFe<T> = class
+  private
+    FGenerico: T;
+    procedure SetGenerico(const Value: T);
+    public
+      property Generico    : T read FGenerico write SetGenerico;
+      function GetGenerico : T;
+  end;
+
+type
+  TForm1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TNFe }
+
+function TNFe.GetGenerico: T;
+begin
+
+end;
+
+procedure TNFe.SetGenerico(const Value: T);
+begin
+  FGenerico := Value;
+end;
+
+end.

@@ -1,0 +1,69 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TPessoa = class
+  private
+    FNome: String;
+    procedure SetNome(const Value: String);
+    public
+      property Nome : String read FNome write SetNome;
+  end;
+
+  TObjetoPessoa<T> = class
+  private
+    FNomeObjeto: String;
+    procedure SetNomeObjeto(const Value: String);
+    public
+      property NomeObjeto : String read FNomeObjeto write SetNomeObjeto;
+  end;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TPessoa }
+
+procedure TPessoa.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+{ TObjetoPessoa<T> }
+
+procedure TObjetoPessoa<T>.SetNomeObjeto(const Value: String);
+begin
+  FNomeObjeto := Value;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  ObjetoPessoa : TObjetoPessoa<TPessoa>;
+begin
+  ObjetoPessoa := TObjetoPessoa<TPessoa>.Create;
+  try
+    ObjetoPessoa.FNomeObjeto := 'Teste';
+  finally
+    ObjetoPessoa.Free;
+  end;
+end;
+
+end.

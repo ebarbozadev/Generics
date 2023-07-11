@@ -1,0 +1,55 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TPessoa = class
+  private
+    FNome: String;
+    procedure SetNome(const Value: String);
+    public
+      property Nome : String read FNome write SetNome;
+  end;
+
+  TObjetoPessoa<T : TPessoa> = class
+  private
+    FNomeObjeto: String;
+    procedure SetNomeObjeto(const Value: String);
+    public
+      property NomeObjeto : String read FNomeObjeto write SetNomeObjeto;
+  end;
+
+type
+  TForm1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TPessoa }
+
+procedure TPessoa.SetNome(const Value: String);
+begin
+  FNome := Value;
+end;
+
+{ TObjetoPessoa<T> }
+
+procedure TObjetoPessoa<T>.SetNomeObjeto(const Value: String);
+begin
+  FNomeObjeto := Value;
+end;
+
+end.

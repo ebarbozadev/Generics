@@ -1,0 +1,47 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TPessoa = class
+  private
+    FFSexo: String;
+    procedure SetFSexo(const Value: String);
+    public
+      property FSexo : String read FFSexo write SetFSexo;
+  end;
+
+  TNfe<T : constructor> = class
+      public
+        FGeneric            : T;
+        function GetGeneric : T;
+        constructor Create;
+  end;
+
+type
+  TForm1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TPessoa }
+
+procedure TPessoa.SetFSexo(const Value: String);
+begin
+  FFSexo := Value;
+end;
+
+end.
