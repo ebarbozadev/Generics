@@ -1,0 +1,103 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  System.Generics.Collections;
+
+type
+  TForm1 = class(TForm)
+    Memo1: TMemo;
+    edtNumero: TEdit;
+    btAdicionar: TButton;
+    btRemover: TButton;
+    btListar: TButton;
+    btCapacity: TButton;
+    btCount: TButton;
+    btOnNotify: TButton;
+    procedure btAdicionarClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btListarClick(Sender: TObject);
+    procedure btRemoverClick(Sender: TObject);
+    procedure btCapacityClick(Sender: TObject);
+    procedure btCountClick(Sender: TObject);
+    procedure btOnNotifyClick(Sender: TObject);
+  private
+    { Private declarations }
+    ListaNumeros : TList<Integer>;
+    procedure Notificacao(Sender: TObject; const Item: Integer; Action : TCollectionNotification);
+    destructor Destroy; override;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+// Afins
+destructor TForm1.Destroy;
+begin
+    ListaNumeros.Free;
+  inherited;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  ListaNumeros := TList<Integer>.Create;
+end;
+
+procedure TForm1.Notificacao(Sender: TObject; const Item: Integer;
+  Action: TCollectionNotification);
+begin
+  case Action of
+    cnAdded: ShowMessage('O item ' + Item.ToString + ' foi adicionado');
+    cnRemoved: ShowMessage('O Item ' + Item.ToString + ' foi removido');
+    cnExtracted: ShowMessage('O Item ' + Item.ToString + ' foi extraido');
+  end;
+end;
+
+// Adicionar
+procedure TForm1.btAdicionarClick(Sender: TObject);
+begin
+  ListaNumeros.Add(StrToInt(edtNumero.Text));
+  edtNumero.Text := '';
+end;
+
+// Listar
+procedure TForm1.btCapacityClick(Sender: TObject);
+begin
+  Memo1.Clear;
+  Memo1.Lines.Add(ListaNumeros.Capacity.ToString);
+end;
+
+procedure TForm1.btCountClick(Sender: TObject);
+begin
+  Memo1.Clear;
+  Memo1.Lines.Add(ListaNumeros.Count.ToString);
+end;
+
+procedure TForm1.btListarClick(Sender: TObject);
+var
+  I: Integer;
+begin
+  Memo1.Lines.Clear;
+  for I := 0 to Pred(ListaNumeros.Count) do
+    Memo1.Lines.Add(ListaNumeros[I].ToString);
+end;
+procedure TForm1.btOnNotifyClick(Sender: TObject);
+begin
+  ListaNumeros.OnNotify := Notificacao;
+end;
+
+procedure TForm1.btRemoverClick(Sender: TObject);
+begin
+  ListaNumeros.Delete(Pred(ListaNumeros.Count));
+end;
+
+end.
